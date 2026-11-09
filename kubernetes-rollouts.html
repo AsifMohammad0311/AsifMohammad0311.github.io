@@ -3,46 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A practical guide to diagnosing stalled Kubernetes Deployment rollouts using status, Pod events, and logs.">
-  <meta name="theme-color" content="#0d141e">
-  <title>What to check when a Kubernetes rollout stalls · Mohammad Asif</title>
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0;url=./">
+  <title>Mohammad Asif · Portfolio</title>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="top"><div class="wrap top-inner">
-    <a class="brand" href="./" aria-label="Mohammad Asif, home"><span class="mark" aria-hidden="true">MA</span><span>Mohammad Asif</span></a>
-    <nav aria-label="Main navigation"><a href="./#experience">Experience</a><a href="./#projects">Project</a><a href="./#writing">Writing</a></nav>
-  </div></header>
-  <main id="main" class="article">
-    <a class="back" href="./#writing">← All writing</a>
-    <article>
-      <header>
-        <p class="eyebrow">FIELD NOTE / KUBERNETES</p>
-        <h1>What to check when a Kubernetes rollout stalls</h1>
-        <p>A stalled Deployment is a symptom. Start by finding out whether Kubernetes can schedule the new Pods, pull the image, start the container, and mark it ready.</p>
-      </header>
-      <h2>1. Confirm what you’re inspecting</h2>
-      <p>Verify the cluster context and namespace first. Check whether the Deployment has the new image and how many updated replicas are available. The example below uses a Deployment called <code>api</code> in namespace <code>qa</code>. Replace those names with the ones you intend to inspect.</p>
-      <pre tabindex="0"><code>kubectl config current-context
-kubectl -n qa rollout status deployment/api --timeout=60s
-kubectl -n qa describe deployment api
-kubectl -n qa get pods -o wide</code></pre>
-      <p>The client timeout bounds how long the first status command waits. A Deployment condition of <code>ProgressDeadlineExceeded</code> is a separate signal from the controller that the rollout has stopped progressing within its configured deadline.</p>
-      <h2>2. Find the Pod that explains the failure</h2>
-      <p>Look at the new ReplicaSet and its Pods. Use <code>kubectl describe pod</code> for events. If the container starts and exits, inspect its logs and use <code>--previous</code> for the last terminated instance, when available.</p>
-      <ul>
-        <li><strong>Pending:</strong> Look for scheduling events, insufficient resources, or constraints that prevent placement.</li>
-        <li><strong>ImagePullBackOff:</strong> Check the exact image reference, registry access, and pull credentials.</li>
-        <li><strong>CrashLoopBackOff:</strong> Read the container’s logs and check its exit reason, required configuration, and dependencies.</li>
-        <li><strong>Running but unready:</strong> Check readiness probe settings, the listening port, and whether the application is ready to accept traffic.</li>
-      </ul>
-      <h2>3. Pick a recovery path and verify it</h2>
-      <p>If the release is affecting users, follow the environment’s approved rollback process. Where Helm or a GitOps controller owns the Deployment, use the release tool or reconcile the source of truth so it does not reapply the failed change. After recovery, confirm available replicas and smoke test the application. Deployment status checks Kubernetes state. The smoke test checks what users can reach.</p>
-      <p class="source">Reference: <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Kubernetes documentation on Deployments and rollout status</a>.</p>
-    </article>
-  </main>
-  <footer class="footer"><div class="wrap footer-inner"><span>Mohammad Asif · DevOps Engineer</span><a href="./">Portfolio home</a></div></footer>
+  <p><a href="./">Go to Mohammad Asif’s portfolio</a>.</p>
 </body>
 </html>

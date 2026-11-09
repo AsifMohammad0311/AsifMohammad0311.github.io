@@ -3,49 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A practical pattern for reusing Terraform modules with separate environment configurations, state, and plans.">
-  <meta name="theme-color" content="#0d141e">
-  <title>How to reuse Terraform modules across environments · Mohammad Asif</title>
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0;url=./">
+  <title>Mohammad Asif · Portfolio</title>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="top"><div class="wrap top-inner">
-    <a class="brand" href="./" aria-label="Mohammad Asif, home"><span class="mark" aria-hidden="true">MA</span><span>Mohammad Asif</span></a>
-    <nav aria-label="Main navigation"><a href="./#experience">Experience</a><a href="./#projects">Project</a><a href="./#writing">Writing</a></nav>
-  </div></header>
-  <main id="main" class="article">
-    <a class="back" href="./#writing">← All writing</a>
-    <article>
-      <header>
-        <p class="eyebrow">FIELD NOTE / TERRAFORM</p>
-        <h1>How to reuse Terraform modules across environments</h1>
-        <p>Development, QA, and production often need the same infrastructure pattern with different settings. Keep the shared resource definitions in a module and let each environment choose its inputs.</p>
-      </header>
-      <h2>1. Give the module a clear purpose</h2>
-      <p>A networking module might manage a VPC or VNet and its subnets. Pass address ranges, naming, and tags through typed variables. Return identifiers that other modules need, such as subnet IDs. If a change requires callers to supply a new input or changes an output, document what callers need to update.</p>
-      <h2>2. Give each environment its own root configuration</h2>
-      <p>One way to organize a repository is to keep a root module for each environment. Each root calls the shared module and has its own backend state. The directory layout alone does not isolate state, so explicitly configure distinct state paths and restrict access by environment.</p>
-      <pre tabindex="0"><code>modules/
-  network/
-    main.tf
-    variables.tf
-    outputs.tf
-environments/
-  dev/
-  qa/
-  prod/</code></pre>
-      <h2>3. Review the plan for the intended environment</h2>
-      <p>Initialize and validate the chosen root, then review its plan. Check the target account or subscription and look at replacements, removals, and changes to network and access rules. If the plan includes an unexpected replacement, investigate before an apply. Treat saved plan files like state files because they can contain sensitive values.</p>
-      <pre tabindex="0"><code>cd environments/qa
-terraform init
-terraform validate
-terraform plan</code></pre>
-      <p>For shared changes, review plans for each affected environment and stage the rollout. A QA plan can help catch an issue early. A production plan still needs review against production’s own state and inputs.</p>
-      <p class="source">References: <a href="https://developer.hashicorp.com/terraform/language/modules/develop">HashiCorp’s guide to creating modules</a> and <a href="https://developer.hashicorp.com/terraform/cli/commands/plan">the Terraform plan reference</a>.</p>
-    </article>
-  </main>
-  <footer class="footer"><div class="wrap footer-inner"><span>Mohammad Asif · DevOps Engineer</span><a href="./">Portfolio home</a></div></footer>
+  <p><a href="./">Go to Mohammad Asif’s portfolio</a>.</p>
 </body>
 </html>
