@@ -20,22 +20,14 @@ a { color: var(--accent); text-underline-offset: .2em; }
 a:hover { text-decoration-thickness: .12em; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
 .intro { padding-bottom: clamp(2rem, 5vw, 3rem); }
-.kicker {
-  color: var(--accent);
-  font-size: .76rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-.kicker span { color: var(--muted); padding-inline: .18rem; }
 h1 {
-  margin-block: .45rem .6rem;
+  margin-bottom: .6rem;
   font-size: clamp(2.85rem, 8.3vw, 6.1rem);
   font-weight: 760;
   letter-spacing: -.078em;
   line-height: 1.02;
 }
-.tenure { color: var(--muted); font-size: clamp(1rem, 2.4vw, 1.18rem); }
+.tenure { color: var(--muted); font-size: clamp(.78rem, 3.5vw, 1.18rem); }
 .tenure strong { color: var(--ink); }
 .contact {
   display: flex;
@@ -100,16 +92,24 @@ h3 { font-size: 1rem; font-weight: 680; letter-spacing: -.014em; }
 .timeline li:first-child::before { background: var(--accent); }
 .date { color: var(--muted); font-size: .84rem; font-variant-numeric: tabular-nums; }
 .projects { margin: .5rem 0 0; padding: 0; list-style: none; }
-.projects li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+.projects > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 16.5rem);
+  align-items: start;
   gap: .55rem 1.25rem;
   padding-block: 1rem;
 }
-.projects li + li { border-top: 1px solid var(--line); }
-.category {
-  flex: none;
+.projects > li + li { border-top: 1px solid var(--line); }
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.project-tags li {
   color: var(--accent);
   background: var(--tint);
   border-radius: 999px;
@@ -121,7 +121,6 @@ h3 { font-size: 1rem; font-weight: 680; letter-spacing: -.014em; }
   .page { width: calc(100% - 2rem); }
   .timeline li { grid-template-columns: 1fr; }
   .contact { gap: .55rem 1.1rem; }
-}
-@media (max-width: 26rem) {
-  .projects li { flex-wrap: wrap; }
+  .projects > li { grid-template-columns: minmax(0, 1fr); }
+  .project-tags { justify-content: flex-start; }
 }
