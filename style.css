@@ -52,6 +52,20 @@ h1 {
 h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 730; letter-spacing: -.045em; }
 h3 { font-size: 1rem; font-weight: 680; letter-spacing: -.014em; }
 .detail { margin-top: .15rem; color: var(--muted); font-size: .91rem; }
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .65rem;
+  margin: .85rem 0 0;
+}
+.skills div {
+  padding: .75rem .85rem;
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+  background: var(--tint);
+}
+.skills dt { color: var(--accent); font-size: .83rem; font-weight: 700; }
+.skills dd { margin: .2rem 0 0; color: var(--ink); font-size: .85rem; }
 .timeline {
   list-style: none;
   padding: 0;
@@ -100,6 +114,7 @@ h3 { font-size: 1rem; font-weight: 680; letter-spacing: -.014em; }
 }
 @media (max-width: 37rem) {
   .page { width: calc(100% - 2rem); }
+  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .timeline li { grid-template-columns: 1fr; }
   .contact { gap: .55rem 1.1rem; }
 }
