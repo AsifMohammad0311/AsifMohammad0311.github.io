@@ -19,22 +19,7 @@ h1, h2, h3, p { margin: 0; }
 a { color: var(--accent); text-underline-offset: .2em; }
 a:hover { text-decoration-thickness: .12em; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
-.intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(7.5rem, 13vw, 9.5rem);
-  gap: 1.25rem;
-  align-items: center;
-  padding-bottom: clamp(2rem, 5vw, 3rem);
-}
-.intro-copy { grid-area: 1 / 1; }
-.portrait {
-  grid-area: 1 / 2;
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: .85rem;
-  border: 1px solid var(--line);
-}
+.intro { padding-bottom: clamp(2rem, 5vw, 3rem); }
 h1 {
   margin-bottom: .6rem;
   font-size: clamp(2.85rem, 8.3vw, 6.1rem);
@@ -134,9 +119,6 @@ h3 { font-size: 1rem; font-weight: 680; letter-spacing: -.014em; }
 }
 @media (max-width: 37rem) {
   .page { width: calc(100% - 2rem); }
-  .intro { grid-template-columns: minmax(0, 1fr); }
-  .intro-copy, .portrait { grid-area: auto; }
-  .portrait { width: 5.75rem; }
   .timeline li { grid-template-columns: 1fr; }
   .contact { gap: .55rem 1.1rem; }
   .projects > li { grid-template-columns: minmax(0, 1fr); }
